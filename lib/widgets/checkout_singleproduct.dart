@@ -7,13 +7,13 @@ class CheckOutSingleProduct extends StatefulWidget {
   final String name;
   final String image;
   final int index;
-  final String color;
+  // final String color;
   final String size;
   final int quentity;
   final double price;
   CheckOutSingleProduct({
     this.index,
-    this.color,
+    // this.color,
     this.size,
     this.quentity,
     this.image,
@@ -69,10 +69,10 @@ class _CheckOutSingleProductState extends State<CheckOutSingleProduct> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            widget.color,
-            style: myStyle,
-          ),
+          // Text(
+          //   widget.color,
+          //   style: myStyle,
+          // ),
           Text(
             widget.size,
             style: myStyle,

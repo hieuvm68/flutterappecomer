@@ -2,6 +2,7 @@ import 'package:e_commerce/screens/checkout.dart';
 import 'package:e_commerce/screens/homepage.dart';
 import 'package:e_commerce/widgets/mybutton.dart';
 import 'package:e_commerce/widgets/notification_button.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import '../provider/product_provider.dart';
@@ -20,13 +21,13 @@ class _DetailScreenState extends State<DetailScreen> {
   int count = 1;
   ProductProvider productProvider;
 
-  Widget _buildColorProduct({Color color}) {
-    return Container(
-      height: 40,
-      width: 40,
-      color: color,
-    );
-  }
+  // Widget _buildColorProduct({Color color}) {
+  //   return Container(
+  //     height: 40,
+  //     width: 40,
+  //     color: color,
+  //   );
+  // }
 
   final TextStyle myStyle = TextStyle(
     fontSize: 18,
@@ -120,55 +121,74 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  List<bool> sized = [true, false, false, false];
-  List<bool> colored = [true, false, false, false];
+  List<bool> sized = [true, false, false, false,false, false,false];
+  // List<bool> colored = [true, false, false, false];
   int sizeIndex = 0;
   String size;
   void getSize() {
     if (sizeIndex == 0) {
       setState(() {
-        size = "mini";
+        size = "38";
       });
     } else if (sizeIndex == 1) {
       setState(() {
-        size = "big";
+        size = "39";
       });
     } else if (sizeIndex == 2) {
       setState(() {
-        size = "L";
+        size = "40";
       });
     } else if (sizeIndex == 3) {
       setState(() {
-        size = "XL";
+        size = "41";
       });
     }
+    else if (sizeIndex == 4) {
+      setState(() {
+        size = "42";
+      });
+    }
+    else if (sizeIndex == 5) {
+      setState(() {
+        size = "43";
+      });
+    }
+    
+    else if (sizeIndex == 6) {
+      setState(() {
+        size = "44";
+      });
+    } 
+ 
+   
   }
 
-  int colorIndex = 0;
-  String color;
-  void getColor() {
-    if (colorIndex == 0) {
-      setState(() {
-        color = "Light Blue";
-      });
-    } else if (colorIndex == 1) {
-      setState(() {
-        color = "Light Green";
-      });
-    } else if (colorIndex == 2) {
-      setState(() {
-        color = "Light Yellow";
-      });
-    } else if (colorIndex == 3) {
-      setState(() {
-        color = "Cyan";
-      });
-    }
-  }
+  // int colorIndex = 0;
+  // String color;
+  // void getColor() {
+  //   if (colorIndex == 0) {
+  //     setState(() {
+  //       color = "Light Blue";
+  //     });
+  //   } else if (colorIndex == 1) {
+  //     setState(() {
+  //       color = "Light Green";
+  //     });
+  //   } else if (colorIndex == 2) {
+  //     setState(() {
+  //       color = "Light Yellow";
+  //     });
+  //   } else if (colorIndex == 3) {
+  //     setState(() {
+  //       color = "Cyan";
+  //     });
+  //   }
+  // }
 
   // ignore: unused_element
   Widget _buildSizePart() {
     return Column(
+      
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
@@ -177,83 +197,95 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         SizedBox(
           height: 15,
+          
         ),
         Container(
-          width: 265,
-          child: ToggleButtons(
-            children: [
-              Text("S"),
-              Text("M"),
-              Text("L"),
-              Text("XL"),
-            ],
-            onPressed: (int index) {
-              setState(() {
-                for (int indexBtn = 0; indexBtn < sized.length; indexBtn++) {
-                  if (indexBtn == index) {
-                    sized[indexBtn] = true;
-                  } else {
-                    sized[indexBtn] = false;
-                  }
-                }
-              });
-              setState(() {
-                sizeIndex = index;
-              });
-            },
-            isSelected: sized,
+          
+          width: MediaQuery.of(context).size.width,
+          
+         
+            child: 
+              ToggleButtons(
+                
+                children: [
+                  Text("38"),
+                  Text("39"),
+                  Text("40"),
+                  Text("41"),
+                  Text("42"),
+                  Text("43"),
+                  Text("44"),
+                ],
+                
+                onPressed: (int index) {
+                  setState(() {
+                    for (int indexBtn = 0; indexBtn < sized.length; indexBtn++) {
+                      if (indexBtn == index) {
+                        sized[indexBtn] = true;
+                      } else {
+                        sized[indexBtn] = false;
+                      }
+                    }
+                  });
+                  setState(() {
+                    sizeIndex = index;
+                  });
+                },
+                isSelected: sized,
+              ),
+            
           ),
-        ),
+        
       ],
     );
   }
 
   // ignore: unused_element
-  Widget _buildColorPart() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          "Color",
-          style: myStyle,
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Container(
-          width: 265,
-          child: ToggleButtons(
-            fillColor: Color(0xff746bc9),
-            renderBorder: false,
-            children: [
-              _buildColorProduct(color: Colors.blue[200]),
-              _buildColorProduct(color: Colors.green[200]),
-              _buildColorProduct(color: Colors.yellow[200]),
-              _buildColorProduct(color: Colors.cyan[300]),
-            ],
-            onPressed: (int index) {
-              setState(() {
-                for (int indexBtn = 0; indexBtn < colored.length; indexBtn++) {
-                  if (indexBtn == index) {
-                    colored[indexBtn] = true;
-                  } else {
-                    colored[indexBtn] = false;
-                  }
-                }
-              });
-              setState(() {
-                colorIndex = index;
-              });
-            },
-            isSelected: colored,
-          ),
-        ),
-      ],
-    );
-  }
+  // Widget _buildColorPart() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: <Widget>[
+  //       SizedBox(
+  //         height: 10,
+  //       ),
+  //       Text(
+  //         "Color",
+  //         style: myStyle,
+  //       ),
+  //       SizedBox(
+  //         height: 15,
+  //       ),
+  //       Container(
+  //         width: 265,
+  //         child: ToggleButtons(
+  //           fillColor: Color(0xff746bc9),
+  //           renderBorder: false,
+  //           children: [
+  //             _buildColorProduct(color: Colors.blue[200]),
+  //             _buildColorProduct(color: Colors.green[200]),
+  //             _buildColorProduct(color: Colors.yellow[200]),
+  //             _buildColorProduct(color: Colors.cyan[300]),
+  //           ],
+  //           onPressed: (int index) {
+  //             setState(() {
+  //               for (int indexBtn = 0; indexBtn < colored.length; indexBtn++) {
+  //                 if (indexBtn == index) {
+  //                   colored[indexBtn] = true;
+  //                 } else {
+  //                   colored[indexBtn] = false;
+  //                 }
+  //               }
+  //             });
+  //             setState(() {
+  //               colorIndex = index;
+  //             });
+  //           },
+  //           isSelected: colored,
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   Widget _buildQuentityPart() {
     return Column(
@@ -320,10 +352,10 @@ class _DetailScreenState extends State<DetailScreen> {
         name: "Add To Cart",
         onPressed: () {
           getSize();
-          getColor();
+          // getColor();
           productProvider.getCheckOutData(
             image: widget.image,
-            color: color,
+            // color: color,
             size: size,
             name: widget.name,
             price: widget.price,

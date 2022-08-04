@@ -1,4 +1,6 @@
+
 import 'package:e_commerce/screens/homepage.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 class About extends StatelessWidget {
@@ -24,7 +26,7 @@ class About extends StatelessWidget {
                   MaterialPageRoute(builder: (ctx) => HomePage()));
             },
           ),
-          iconTheme: IconThemeData(color: Colors.black),
+          // iconTheme: IconThemeData(color: Colors.black),
         ),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 27),

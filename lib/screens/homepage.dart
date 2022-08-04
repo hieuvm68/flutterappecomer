@@ -19,6 +19,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:provider/provider.dart';
 import '../model/product.dart';
 import '../widgets/notification_button.dart';
+import 'mapscreen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -110,6 +111,7 @@ class _HomePageState extends State<HomePage> {
             leading: Icon(Icons.shopping_cart),
             title: Text("Checkout"),
           ),
+          
           ListTile(
             selected: aboutColor,
             onTap: () {
@@ -127,6 +129,22 @@ class _HomePageState extends State<HomePage> {
             title: Text("About"),
           ),
           ListTile(
+            selected: aboutColor,
+            onTap: () {
+              setState(() {
+                aboutColor = true;
+                contactUsColor = false;
+                homeColor = false;
+                profileColor = false;
+                checkoutColor = false;
+              });
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (ctx) => MapScreen()));
+            },
+            leading: Icon(Icons.map),
+            title: Text("Location"),
+          ),
+          ListTile(
             selected: profileColor,
             onTap: () {
               setState(() {
@@ -142,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             },
-            leading: Icon(Icons.info),
+            leading: Icon(Icons.man),
             title: Text("Profile"),
           ),
           ListTile(
@@ -198,7 +216,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (ctx) => ListProduct(
-                name: "footbal",
+                name: "Adidas",
                 snapShot: dress,
               ),
             ),
@@ -219,7 +237,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (ctx) => ListProduct(
-                name: "Basketball",
+                name: "Nike",
                 snapShot: shirts,
               ),
             ),
@@ -240,7 +258,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (ctx) => ListProduct(
-                name: "Jordan",
+                name: "Vans",
                 snapShot: shoes,
               ),
             ),
@@ -264,7 +282,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (ctx) => ListProduct(
-                name: "Running",
+                name: "New Blance",
                 snapShot: pant,
               ),
             ),
@@ -288,7 +306,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (ctx) => ListProduct(
-                name: "Gym",
+                name: "Puma",
                 snapShot: tie,
               ),
             ),

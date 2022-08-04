@@ -28,7 +28,7 @@ class ProductProvider with ChangeNotifier {
       (snap) {
          var data = snap.data() as Map<String, dynamic>;
         if (currentUser.uid == data['UserId']) {
-          print("hello");
+          // print("hello");
           userModel = UserModel(
             userName: data["UserName"] as String,
             userEmail: data["UserEmail"] as String,
@@ -38,7 +38,7 @@ class ProductProvider with ChangeNotifier {
             userImage: data["UserImage"] as String,
           
           );
-            print("hello2");
+            // print("hello2");
           newList.add(userModel);
         }
 
@@ -78,12 +78,12 @@ class ProductProvider with ChangeNotifier {
     int quentity,
     double price,
     String name,
-    String color,
+    // String color,
     String size,
     String image,
   }) {
     checkOutModel = CartModel(
-      color: color,
+      // color: color,
       size: size,
       price: price,
       name: name,

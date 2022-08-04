@@ -63,7 +63,7 @@ class _CheckOutState extends State<CheckOut> {
                           "ProductPrice": c.price,
                           "ProductQuetity": c.quentity,
                           "ProductImage": c.image,
-                          "Product Color": c.color,
+                          // "Product Color": c.color,
                           "Product Size": c.size,
                         })
                     .toList(),
@@ -180,7 +180,7 @@ class _CheckOutState extends State<CheckOut> {
                     itemBuilder: (ctx, myIndex) {
                       return CheckOutSingleProduct(
                         index: myIndex,
-                        color: myList[myIndex].color,
+                        // color: myList[myIndex].color,
                         size: myList[myIndex].size,
                         image: myList[myIndex].image,
                         name: myList[myIndex].name,

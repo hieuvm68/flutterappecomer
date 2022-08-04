@@ -41,11 +41,8 @@ dependencies:
   equatable: ^2.0.3
   flutter_tawk: ^0.0.5
   resize: ^0.0.4
-  dio: ^4.0.6
-  flutter_polyline_points: ^1.0.0
-  google_maps_flutter: ^2.1.8
-flutter_gl: ^0.0.12
-
+  flutter_gl: ^0.0.12
+ 
 
 dev_dependencies:
   flutter_test:

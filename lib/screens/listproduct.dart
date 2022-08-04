@@ -89,10 +89,10 @@ class ListProduct extends StatelessWidget {
               Icons.search,
               color: Colors.black,
             ),
-            onPressed: () {
-              categoryProvider.getSearchList(list: snapShot);
-              showSearch(context: context, delegate: SearchCategory());
-            },
+            // onPressed: () {
+            //   categoryProvider.getSearchList(list: snapShot);
+            //   showSearch(context: context, delegate: SearchCategory());
+            // },
           )
         : IconButton(
             icon: Icon(

@@ -5,23 +5,23 @@ import 'package:flutter/material.dart';
 
 class CategoryProvider with ChangeNotifier {
   List<Product> football = [];
-  Product footballData; //laptop
+  Product footballData; 
   List<Product> basketball = [];
-  Product basketballData; //mobi
+  Product basketballData;
   List<Product> jordan = [];
-  Product jordanData; //mouse
+  Product jordanData; 
   List<Product> running = [];
-  Product runningData; //ram
+  Product runningData; 
   List<Product> gym = [];
-  Product gymData; //gym
+  Product gymData; 
 
   List<CategoryIcon> footballIcon = <CategoryIcon>[];
   CategoryIcon footballiconData;
   Future<void> getFootballIconData() async {
     QuerySnapshot footballSnapShot = await FirebaseFirestore.instance
         .collection("categoryicon")
-        .doc("ThwmwBGHcgmPyhaimAp7")
-        .collection("basketball")
+        .doc("4Kr0R5WgGkJ2ZRjavuK5")
+        .collection("Footbal")
         .get();
     final List<CategoryIcon> icondata = footballSnapShot.docs.map((doc) {
       footballiconData = CategoryIcon(image: doc["image"]);
@@ -40,8 +40,8 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getShirtIcon() async {
     QuerySnapshot basketballSnapShot = await FirebaseFirestore.instance
         .collection("categoryicon")
-        .doc("ThwmwBGHcgmPyhaimAp7")
-        .collection("basketball")
+        .doc("4Kr0R5WgGkJ2ZRjavuK5")
+        .collection("Basketball")
         .get();
     final List<CategoryIcon> allData = basketballSnapShot.docs.map((doc) {
       basketballiconData = CategoryIcon(image: doc["image"]);
@@ -61,8 +61,8 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getmouseIconData() async {
     QuerySnapshot jordanSnapShot = await FirebaseFirestore.instance
         .collection("categoryicon")
-        .doc("ThwmwBGHcgmPyhaimAp7")
-        .collection("basketball")
+        .doc("4Kr0R5WgGkJ2ZRjavuK5")
+        .collection("Jordan")
         .get();
     final List<CategoryIcon> allData = jordanSnapShot.docs.map((doc) {
       jordaniconData = CategoryIcon(image: doc["image"]);
@@ -82,8 +82,8 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getRamIconData() async {
     QuerySnapshot runningSnapShot = await FirebaseFirestore.instance
         .collection("categoryicon")
-        .doc("ThwmwBGHcgmPyhaimAp7")
-        .collection("basketball")
+        .doc("4Kr0R5WgGkJ2ZRjavuK5")
+        .collection("Running")
         .get();
     final List<CategoryIcon> allData = runningSnapShot.docs.map((doc) {
       runningiconData = CategoryIcon(image: doc["image"]);
@@ -103,8 +103,8 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getVgaIconData() async {
     QuerySnapshot gymSnapShot = await FirebaseFirestore.instance
         .collection("categoryicon")
-        .doc("ThwmwBGHcgmPyhaimAp7")
-        .collection("basketball")
+        .doc("4Kr0R5WgGkJ2ZRjavuK5")
+        .collection("gym")
         .get();
     final List<CategoryIcon> allData = gymSnapShot.docs.map((doc) {
       gymIconData = CategoryIcon(image: doc["image"]);
@@ -123,7 +123,7 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getBasketballData() async {
     QuerySnapshot basketballSnapShot = await FirebaseFirestore.instance
         .collection("category")
-        .doc("lS07s40lLJBixNMxXtzo")
+        .doc("kBC3GJAlWxEucXb6tXnE")
         .collection("Basketball")
         .get();
 
@@ -145,7 +145,7 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getFootballData() async {
     QuerySnapshot footballSnapShot = await FirebaseFirestore.instance
         .collection("category")
-        .doc("lS07s40lLJBixNMxXtzo")
+        .doc("kBC3GJAlWxEucXb6tXnE")
         .collection("Footbal")
         .get();
 
@@ -167,7 +167,7 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getJordanData() async {
     QuerySnapshot jordanSnapShot = await FirebaseFirestore.instance
         .collection("category")
-        .doc("lS07s40lLJBixNMxXtzo")
+        .doc("kBC3GJAlWxEucXb6tXnE")
         .collection("Jordan")
         .get();
 
@@ -189,7 +189,7 @@ class CategoryProvider with ChangeNotifier {
   Future<void> getRunningData() async {
     QuerySnapshot runningSnapShot = await FirebaseFirestore.instance
         .collection("category")
-        .doc("lS07s40lLJBixNMxXtzo")
+        .doc("kBC3GJAlWxEucXb6tXnE")
         .collection("Running")
         .get();
 
@@ -208,26 +208,26 @@ class CategoryProvider with ChangeNotifier {
     return running;
   }
 
-  Future<void> getGymData() async {
-    QuerySnapshot gymSnapShot = await FirebaseFirestore.instance
+   Future<void> getGymData() async {
+    QuerySnapshot runningSnapShot = await FirebaseFirestore.instance
         .collection("category")
-        .doc("lS07s40lLJBixNMxXtzo")
+        .doc("kBC3GJAlWxEucXb6tXnE")
         .collection("gym")
         .get();
 
-    final List<Product> allData = gymSnapShot.docs.map((doc) {
-      gymData = Product(
+    final List<Product> allData = runningSnapShot.docs.map((doc) {
+      runningData = Product(
           name: doc["name"],
           image: doc["image"],
           price: doc["price"].toDouble());
-      return gymData;
-    });
-    gym = allData;
+      return runningData;
+    }).toList();
+    running = allData;
     notifyListeners();
   }
 
   List<Product> get getGymList {
-    return gym;
+    return running;
   }
 
   List<Product> searchList;
